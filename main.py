@@ -1,16 +1,15 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
+
 @app.route('/')
 def home():
-    return """Site em construção, volte outro dia!\n
-              Site under maintenance, come back later!\n\n
-              
-              (I decided to build it from scratch using Flask, so I can better present my work and improve my front-end skills, haha'.\n\n
-              
-              You can reach me at ewerton@ewerton.com.br"""
+    return render_template("home.html")
 
 
 if __name__ == '__main__':
