@@ -7,6 +7,9 @@ body {
     background-color: #5a892622;
 }
 
+.short-text, .short-text-600 {
+    display: none;
+}
 
 h1 {
     font-size: 60px;
@@ -50,6 +53,7 @@ ul {
 
 div {
     margin: 0 0 10px 0;
+    overflow: hidden;
 }
 
 .caption {
@@ -62,4 +66,52 @@ footer {
     text-align: center;
     color: darkgray;
     margin: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        margin: 30px;
+    }
+
+    .short-text {
+        display: inline-block;
+    }
+
+    .full-text {
+        display: none;
+    }
+
+    h2 {
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+
+    .line-h2 {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .caption {
+        display: none;
+    }
+
+    #random_gif {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .short-text-600 {
+        display: inline-block;
+    }
+
+    .full-text-600 {
+        display: none;
+    }
+
+    img {
+        display: block;
+    }
 }
