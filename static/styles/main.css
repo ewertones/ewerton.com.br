@@ -100,6 +100,10 @@ footer {
         max-width: 100%;
         height: auto;
     }
+
+    img {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -109,9 +113,5 @@ footer {
 
     .full-text-600 {
         display: none;
-    }
-
-    img {
-        display: block;
     }
 }
