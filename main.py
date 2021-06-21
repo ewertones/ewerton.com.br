@@ -20,7 +20,7 @@ def get_flyer():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'documents/translation_flyer.pdf', mimetype='application/pdf')
     
 @app.route('/img/translations')
-def get_flyer():
+def get_jpg_flyer():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'images/translation_flyer.jpg', mimetype='image/jpeg')
 
 
