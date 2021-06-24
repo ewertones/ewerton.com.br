@@ -9,11 +9,11 @@
 
 <!-- First block -->
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <img src="{{ url_for('static', filename='images/me.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Photo of Ewerton" width="300px" height="300px" />
         <div class="caption center-block">Me :)</div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
         <p>Hey, welcome to my webpage!</p>
         <p>I thinks this is (or will be) my portfolio, but I'm not really sure, haha.</p>
         <div class="form-check"><input class="form-check-input" type="checkbox" checked> <label class="form-check-label">Data Engineer</label></div>
@@ -36,11 +36,11 @@
 <div class="line-h2"></div>
 
 <div class="row">
-    <div class="col-md-4 short-text-600">
+    <div class="col-md-3 short-text-800">
         <img src="{{ url_for('static', filename='images/cheese.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Ewerton making cheese" width="300px" height="300px" />
         <div class="caption center-block">Making cheese in the lab years ago</div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
         <p>
             Hi, my name is Ewerton. I have 25 years old and I live in Brazil <img src="{{ url_for('static', filename='/icons/brazil.svg') }}" class="full-text" width="16" height="16"> .
             My favorite hobby is to learn new things. I like to code, especially with Python, but I can make some <em>Hello Worlds</em> in C++, Java, Javascript, C, MATLAB, R...
@@ -55,18 +55,18 @@
             and although it helped me grasp some concepts, it is the last language that I would use for anything, so... don't learn it, Python is better.
         </p>
     </div>
-    <div class="col-md-4 full-text-600">
+    <div class="col-md-3 full-text-800">
         <img src="{{ url_for('static', filename='images/cheese.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Ewerton making cheese" width="300px" height="300px" />
         <div class="caption center-block">Making cheese in the lab years ago</div>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <a href="{{ url_for('get_flyer') }}" target="_blank" class="link-primary"><img src="{{ url_for('static', filename='images/translation_flyer.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Translation flyer" width="300px" height="430px" /></a>
         <div class="caption center-block">The flyer that I sent</div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
         <p>
             My first professional experience happenned when I created my own company. I started to translate things from English, French, and Spanish to Portuguese.
             With the awesome help of Python, I created a scraper to get developers and companies' emails from Play Store and sent them my flyer
@@ -100,7 +100,7 @@
 </p>
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
         <p>
             After 6 months, I was promoted to Data Engineer. My first task was to make my script run on Cloud. I used a VM in GCP, running a Docker container
             that had an Airflow image, basically. I created scripts that, every hour, collected reports from Facebook, Google Ads, Google Ad Manager and Google Analytics,
@@ -112,7 +112,7 @@
             As you can see, I'm definitely a Junior, but I'm also an awesome dude that looks forward to the future.
         </p>
     </div>
-    <div class="col-md-4 full-text-600" id="random_gif">
+    <div class="col-md-3 full-text-800" id="random_gif">
         <video src="{{ url_for('static', filename='images/cmd.webm') }}" width="300px" height="225px" playsinline autoplay muted loop></video>
         <div class="caption center-block">Just a random gif</div>
     </div>
