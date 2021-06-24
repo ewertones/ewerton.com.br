@@ -23,6 +23,10 @@ def get_flyer():
 def get_jpg_flyer():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'images/translation_flyer.jpg', mimetype='image/jpeg')
 
+@app.route('/vagas')
+def get_jobs():
+    return render_template('jobs.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
