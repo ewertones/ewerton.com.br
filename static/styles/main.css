@@ -68,6 +68,18 @@ footer {
     margin: 20px;
 }
 
+.card {
+    margin-top: 20px;
+}
+
+.job-status-btn {
+    margin-left: 10px;
+}
+
+.job-number {
+    color: #c7c7c7
+}
+
 @media screen and (max-width: 1000px) {
     body {
         margin: 30px;
@@ -114,16 +126,4 @@ footer {
     .full-text-600 {
         display: none;
     }
-}
-
-.card {
-    margin-top: 20px;
-}
-
-.job-status-btn {
-    margin-left: 10px;
-}
-
-.job-number {
-    color: #c7c7c7
 }
