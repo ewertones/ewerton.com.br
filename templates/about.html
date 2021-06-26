@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- Title -->
+<h1>
+    About me
+</h1>
+<div class="line-h1"></div>
+
+
+<div class="row">
+    <div class="col-md-3 short-text-800">
+        <img src="{{ url_for('static', filename='images/cheese.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Ewerton making cheese" width="300px" height="300px" />
+        <div class="caption center-block">Making cheese in the lab years ago</div>
+    </div>
+    <div class="col-md-9">
+        <p>
+            Hi, my name is Ewerton. I have 25 years old and I live in Brazil <img src="{{ url_for('static', filename='/icons/brazil.svg') }}" class="full-text" width="16" height="16"> .
+            My favorite hobby is to learn new things. I like to code, especially with Python, but I can make some <em>Hello Worlds</em> in C++, Java, Javascript, C, MATLAB, R...
+            With StackOverflow and Indian youtubers, everything is possible.
+        </p>
+        <p>
+            I don't like front-end. To be honest, I spent almost a year trying to force myself to make this page. Dealing with logic at the back-end and managing data and servers in GCP is way nicer, but I still have
+            a lot to learn. I like the KISS (Keep It Simple, Stupid) methodology and I guess this page is an example.
+        </p>
+        <p>
+            I started to code when I was in college doing my Chemical Engineering classes. I had to spend two semesters learning MATLAB,
+            and although it helped me grasp some concepts, it is the last language that I would use for anything, so... don't learn it, Python is better.
+        </p>
+    </div>
+    <div class="col-md-3 full-text-800">
+        <img src="{{ url_for('static', filename='images/cheese.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Ewerton making cheese" width="300px" height="300px" />
+        <div class="caption center-block">Making cheese in the lab years ago</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <a href="{{ url_for('get_flyer') }}" target="_blank" class="link-primary"><img src="{{ url_for('static', filename='images/translation_flyer.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Translation flyer" width="300px" height="430px" /></a>
+        <div class="caption center-block">The flyer that I sent</div>
+    </div>
+    <div class="col-md-9">
+        <p>
+            My first professional experience happenned when I created my own company. I started to translate things from English, French, and Spanish to Portuguese.
+            With the awesome help of Python, I created a scraper to get developers and companies' emails from Play Store and sent them my flyer
+            - Oh, by the way, I'm good with Photoshop, it's an awesome tool that everyone should learn!
+        </p>
+        <p>
+            The business grew, I had a bunch of contracts and got some money. It's really nice to be paid in dollars.
+            If you want some details, I've already translated about 160,000 words! Just for comparison, the New Testament has 184,600.
+            In the end, you just need to be competent. Here is some testimonials from my clients:
+        </p>
+        <ul>
+            <li>"I did not know you'd give me so quickly. Thank you very much!" - <em>Quick Turtle</em></li>
+            <li>"Thank you, Ewerton! It's really nice to work with you!" - <em>Ray Spark</em></li>
+            <li>"Thanks for the quick work!" - <em>Scott Goffman</em></li>
+            <li>"I appreciated your previous work translating Tallowmere 2!" - <em>Chris McFarland</em></li>
+            <li>"Wow, you are really fast, thank you!" - <em>Spotadvisor</em></li>
+            <li>"Hello Ewerton, thanks that was fast! It's perfect!" - <em>GuyCorp Games</em></li>
+        </ul>
+    </div>
+</div>
+
+<p>
+    After that, I got a job as a Data Analyst from a company called BeGrowth. I had to extract reports from our ads that were running in Google and Facebook Ads,
+    then merge them with some other reports to finally show the results to my former boss so he could change whatever needed to be changed.
+    It was a cumbersome task to manually merge those files every day, so I created a Python script that did everything in 3 minutes - 57 minutes less, yay
+    <img src="{{ url_for('static', filename='/icons/clock.svg') }}" class="full-text" width="16" height="16">.
+</p>
+<p>
+    I started helping him manage those ads. It was a nice experience, I could grasp some concepts in Marketing, Google Tag Manager, Analytics,
+    and some other tools, and helped them grow 10 times what they were investing.
+</p>
+
+<div class="row">
+    <div class="col-md-9">
+        <p>
+            After 6 months, I was promoted to Data Engineer. My first task was to make my script run on Cloud. I used a VM in GCP, running a Docker container
+            that had an Airflow image, basically. I created scripts that, every hour, collected reports from Facebook, Google Ads, Google Ad Manager and Google Analytics,
+            then moved them to partitioned tables inside Big Query - we used it as our Datalake and Datawarehouse. With the data gathered and stored,
+            I started to make dashboards using Google Data Studio, but tried Power BI, as well.
+        </p>
+        <p>
+            In June, 2021, I started working for BlueShift. I'm in a team of 20 Data Engineers trying to learn everything that I didn't use till now.
+            As you can see, I'm definitely a Junior, but I'm also an awesome dude that looks forward to the future.
+        </p>
+    </div>
+    <div class="col-md-3 full-text-800" id="random_gif">
+        <video src="{{ url_for('static', filename='images/cmd.webm') }}" width="300px" height="225px" playsinline autoplay muted loop></video>
+        <div class="caption center-block">Just a random gif</div>
+    </div>
+    <p>
+        Thanks for reading! If you want, you can write me at:
+        <img src="{{ url_for('static', filename='/icons/envelope.svg') }}" class="full-text" width="16" height="16">
+        <strong><a href="mailto:ewerton@ewerton.com.br" class="link-primary">ewerton@ewerton.com.br</a></strong>
+    </p>
+</div>
+
+<!-- I want to section -->
+<h2>I want to...</h2>
+<div class="line-h2"></div>
+
+<p>
+    Well, maybe you want to know what my goals are for the foreseeable future, so here it is:
+</p>
+
+<h4>2021-2022</h4>
+<div class="form-check"><input class="form-check-input" type="checkbox"> <label class="form-check-label">visit another country;</li></div>
+<div class="form-check"><input class="form-check-input" type="checkbox"> <label class="form-check-label">learn how to ski;</li></div>
+<div class="form-check"><input class="form-check-input" type="checkbox"> <label class="form-check-label">learn Japanese;</li></div>
+<div class="form-check"><input class="form-check-input" type="checkbox"> <label class="form-check-label"><em>really</em> become a Data Engineer;</li></div>
+<div class="form-check"><input class="form-check-input" type="checkbox"> <label class="form-check-label">get paid in dollars;</li></div>
+<div class="form-check"><input class="form-check-input" type="checkbox"> <label class="form-check-label">move to the coast;</li></div>
+<div class="form-check"><input class="form-check-input" type="checkbox"> <label class="form-check-label">buy a house;</li></div>
+<div class="form-check"><input class="form-check-input" type="checkbox"> <label class="form-check-label">get a ▓▓▓▓▓▓;</li></div>
+<div class="form-check"><input class="form-check-input" type="checkbox"> <label class="form-check-label">make some tutorials</li></div>
+
+<h4>2023+</h4>
+<div class="form-check"><input class="form-check-input" type="checkbox" checked> <label class="form-check-label">I have no idea.</div>
+
+{% endblock content %}
