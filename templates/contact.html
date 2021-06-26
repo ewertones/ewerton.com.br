@@ -1,5 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
+
+{% if success %}
+<div class="alert alert-success" role="alert">
+    Your message has been sent successfully!
+</div>
+{% endif %}
+
+{% for field in form.errors %}
+    {% for error in form.errors[field] %}
+        <div class="alert alert-danger" role="alert">
+            {{ field.upper() }}: {{ error }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
 <!-- Title -->
 <h1>
     Contact
@@ -10,31 +25,23 @@
     <p>If you want to send me a message, you can use this form. I will probably read it in under 24 hours.</p>
 </div>
 
-<!--Name-->
-<div class="mt-5 mb-3">
-    <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" id="name">
-</div>
+<form method="POST" action="{{ url_for('contact') }}">
+    {{ form.csrf_token }}
 
-<!--Email-->
-<div class="mb-3">
-    <label for="email" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="email" placeholder="email@example.com">
-</div>
+    {{ form.name.label }}
+    {{ form.name(class = "form-control mb-3") }}
 
-<!--TextArea-->
-<div class="mb-3">
-    <label for="message" class="form-label">Message</label>
-    <textarea class="form-control" id="message" rows="3"></textarea>
-</div>
+    {{ form.email.label }}
+    {{ form.email(class = "form-control mb-3") }}
 
-<!--SendFile-->
-<div class="mb-5">
-    <label for="file" class="form-label">Send file</label>
-    <input class="form-control" type="file" id="file" multiple>
-</div>
+    {{ form.message.label }}
+    {{ form.message(class = "form-control mb-3") }}
 
-<!--Submit-->
-<button type="button" class="btn btn-secondary d-grid col-2 mx-auto" disabled>Soon...</button>
+    {{ form.recaptcha(class = 'mb-3') }}
+
+    <button type="submit" value="submit" class="btn btn-primary d-grid col-2 mx-auto">Send</button>
+</form>
+
+
 
 {% endblock content %}
