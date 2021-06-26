@@ -2,9 +2,9 @@
 {% block content %}
 
 {% if success %}
-<div class="alert alert-success" role="alert">
-    Your message has been sent successfully!
-</div>
+    <div class="alert alert-success" role="alert">
+        Your message has been sent successfully!
+    </div>
 {% endif %}
 
 {% for field in form.errors %}
@@ -39,9 +39,7 @@
 
     {{ form.recaptcha(class = 'mb-3') }}
 
-    <button type="submit" value="submit" class="btn btn-primary d-grid col-2 mx-auto">Send</button>
+    <button type="submit" value="submit" class="btn btn-primary text-center d-grid gap-2 col-6 mx-auto mt-3">Send</button>
 </form>
-
-
 
 {% endblock content %}

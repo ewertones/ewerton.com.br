@@ -12,15 +12,15 @@
     </script>
 
     <!-- Page title -->
-    <title>Ewerton - Digital Solutions</title>
+    <title>Ewerton Digital Solutions</title>
 
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Why should you hire an entire company if you can just hire me? Ewerton, providing digital solutions since 2020!">
+    <meta name="description" content="Why should you hire an entire company if you can just hire me? Ewerton, providing digital solutions since 2019!">
     <meta property="og:title" content="Ewerton">
-    <meta property="og:description" content="Providing top-notch digital solutions since 2020.">
-    <meta property="og:image" content="{{ url_for('static', filename='images/logo.png') }}">
+    <meta property="og:description" content="Providing top-notch digital solutions since 2019.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/logo.jpg') }}">
     <meta property="og:url" content="https://ewerton.com.br">
     <meta property="og:type" content="website">
 
@@ -40,12 +40,14 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
+                <a class="navbar-brand full-text" href="#">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" width="45" height="45" class="d-inline-block align-top" alt="Logo">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
                         <a class="nav-item nav-link" href="{{ url_for('services') }}">Services</a>
                         <a class="nav-item nav-link" href="{{ url_for('tutorials') }}">Tutorials</a>
                         <a class="nav-item nav-link" href="{{ url_for('jobs') }}">Jobs</a>
@@ -63,14 +65,8 @@
 
     <!-- Footer -->
     <footer>
-        © 2019 ~ 2021 - Ewerton Evangelista de Souza
+        <span class="full-text">© 2019 ~ 2021 - Ewerton Evangelista de Souza</span>
+        <span class="short-text">© 2019 ~ 2021 - Ewerton Souza</span>
     </footer>
-    <script>
-        $(document).ready(function () {
-            if ($('body').height() < $(window).height()) {
-                $('footer').css('position', 'fixed');
-            }
-        })
-    </script>
 </body>
 </html>
