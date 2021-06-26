@@ -1,13 +1,55 @@
 import os
-from flask import Flask, render_template, send_from_directory, url_for
+from flask import Flask, render_template, send_from_directory, url_for, request
+from flask_wtf import FlaskForm, RecaptchaField
+from wtforms import StringField, TextAreaField, FileField, SubmitField, validators
+from wtforms.fields.html5 import EmailField
+from mailjet_rest import Client
+
+
+class ContactForm(FlaskForm):
+    name = StringField('Name:', [validators.InputRequired('?'), validators.Length(max=255)])
+    email = EmailField('Email:', [validators.InputRequired('??'), validators.Email()])
+    message = TextAreaField('Message:', [validators.InputRequired('???')])
+    recaptcha = RecaptchaField()
+
+def send_email(params):
+    """ Use Mailjet API to send email """
+    MAILJET_KEY = '87d785b193f39adcf6aa35e8fad9af27'
+    MAILJET_SECRET = 'a14f61549fa49e97a4a774cf0b00fa95'
+    mailjet = Client(auth=(MAILJET_KEY, MAILJET_SECRET), version='v3.1')
+
+    email = {
+        "Messages": [
+            {
+                "From": {
+                "Email": "ewerton@ewerton.com.br",
+                "Name": "Ewerton E. de Souza"
+                },
+                "To": [
+                {
+                "Email": 'ewerton@ewerton.com.br'
+                }
+                ],
+            "Subject": "ewerton.com.br - Contact Form",
+            "HTMLPart": f"Name: {params.get('name')} <br/><br/> Email: {params.get('email')} <br/><br/> Message: {params.get('message')}",
+        }
+        ]
+    }
+    try:
+        result = mailjet.send.create(data=email)
+    except Exception as exception:
+        print(exception)
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = '22bfddd8e6ca2a4739723034f02ced9c3014a8892d9bace1'
+app.config['RECAPTCHA_USE_SSL'] = False
+app.config['RECAPTCHA_PUBLIC_KEY'] = '6LdQn1obAAAAAE1lwWFuBqFbbo7CbxX6K-jDp_Kg'
+app.config['RECAPTCHA_PRIVATE_KEY'] ='6LdQn1obAAAAAJHisBMReP5ihnXguwWYAyaQg3dx'
 
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico')
 
-# NAVBAR
 @app.route('/')
 def home():
     return render_template("home.html")
@@ -29,11 +71,21 @@ def jobs():
 def about():
     return render_template('about.html')
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    form = ContactForm()
 
-#TODO: Improve these links below
+    if request.method == 'POST' and form.validate_on_submit():
+        send_email(request.form)
+        return render_template("contact.html", form=form, success=True)
+
+    return render_template('contact.html', form=form)
+
+@app.route('/robots.txt')
+@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory(os.path.join(app.root_path, 'static'), request.path[1:])
+
 @app.route('/cv/<lang>')
 def get_pdf(lang='en'):
     return send_from_directory(os.path.join(app.root_path, 'static'), f'documents/cv_ewerton_{lang}.pdf', mimetype='application/pdf')
