@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if success %}
+<div class="alert alert-success" role="alert">
+    Os emails foram salvos com sucesso!
+</div>
+{% endif %}
+
+{% for field in form.errors %}
+    {% for error in form.errors[field] %}
+<div class="alert alert-danger" role="alert">
+    {{ field.upper() }}: {{ error }}
+</div>
+    {% endfor %}
+{% endfor %}
+
+<!-- Title -->
+<h1>
+    Novos Emails
+</h1>
+<div class="line-h1"></div>
+
+<div>
+    <p>Use esse espaço para enviar novos emails ao banco de dados.</p>
+</div>
+
+<form method="POST" action="{{ url_for('raw') }}">
+    {{ form.csrf_token }}
+
+    {{ form.raw.label }}
+    {{ form.raw(rows=10, class = "form-control mb-3") }}
+
+    {{ form.recaptcha(class = 'mb-3') }}
+
+    <button type="submit" value="submit" class="btn btn-primary text-center d-grid gap-2 col-3 mx-auto mt-3">Enviar</button>
+</form>
+
+{% endblock content %}

@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, TextAreaField, FileField, SubmitField, validators
 from wtforms.fields.html5 import EmailField
 from mailjet_rest import Client
+from google.cloud import bigquery
 
 
 class ContactForm(FlaskForm):
@@ -11,6 +12,18 @@ class ContactForm(FlaskForm):
     email = EmailField('Email:', [validators.InputRequired('??'), validators.Email()])
     message = TextAreaField('Message:', [validators.InputRequired('???')])
     recaptcha = RecaptchaField()
+
+class RawEmailsForm(FlaskForm):
+    raw = TextAreaField('Emails:', [validators.InputRequired('???')])
+    recaptcha = RecaptchaField()
+
+def send_to_db(params):
+    text = params.get('raw').splitlines()
+    emails = ''.join(map("('{0}'), ".format, lista)).strip(', ')
+    query = f'INSERT INTO `ewerton-com-br.emails.raw` VALUES {emails}'
+    
+    client = bigquery.Client()
+    query_job = client.query(query)
 
 def send_email(params):
     """ Use Mailjet API to send email """
@@ -80,6 +93,16 @@ def contact():
         return render_template("contact.html", form=form, success=True)
 
     return render_template('contact.html', form=form)
+
+@app.route('/raw',  methods=['GET', 'POST'])
+def raw():
+    form = RawEmailsForm()
+
+    if request.method == 'POST' and form.validate_on_submit():
+        send_to_db(request.form)
+        return render_template("raw.html", form=form, success=True)
+    
+    return render_template('raw.html',  form=form)
 
 @app.route('/robots.txt')
 @app.route('/sitemap.xml')
