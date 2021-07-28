@@ -19,7 +19,7 @@ class RawEmailsForm(FlaskForm):
 
 def send_to_db(params):
     text = params.get('raw').splitlines()
-    emails = ''.join(map("('{0}'), ".format, lista)).strip(', ')
+    emails = ''.join(map("('{0}'), ".format, text)).strip(', ')
     query = f'INSERT INTO `ewerton-com-br.emails.raw` VALUES {emails}'
     
     client = bigquery.Client()
