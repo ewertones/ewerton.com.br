@@ -5,6 +5,8 @@ from wtforms import StringField, TextAreaField, FileField, SubmitField, validato
 from wtforms.fields.html5 import EmailField
 from mailjet_rest import Client
 from google.cloud import bigquery
+from datetime import datetime
+import re
 
 
 class ContactForm(FlaskForm):
@@ -19,8 +21,15 @@ class RawEmailsForm(FlaskForm):
 
 def send_to_db(params):
     text = params.get('raw').splitlines()
-    emails = ''.join(map("('{0}'), ".format, text)).strip(', ')
-    query = f'INSERT INTO `ewerton-com-br.emails.raw` VALUES {emails}'
+    now = datetime.now()
+
+    entries = []
+    for line in text:
+        emails = re.findall(r"""([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)""", line)
+        for email in emails:
+            entries.append(f"('{now}', '{email}')")
+    values = ', '.join(entries)
+    query = f'INSERT INTO `ewerton-com-br.emails.raw` VALUES {values}'
     
     client = bigquery.Client()
     query_job = client.query(query)
