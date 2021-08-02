@@ -25,7 +25,7 @@ def send_to_db(params):
 
     entries = []
     for line in text:
-        emails = re.findall(r"""([a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)""", line)
+        emails = re.findall(r'([\w\-_!#$%&\.]+@(?:[\w\-_!#$%&]*\.)+(?:[\w\-_!#$%&])+)', line)
         for email in emails:
             entries.append(f"('{now}', '{email}')")
     values = ', '.join(entries)
