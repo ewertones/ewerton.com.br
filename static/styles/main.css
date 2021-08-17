@@ -3,9 +3,35 @@ header {
 }
 
 nav {
-    background-color: #e3f2fd;
+    background-color: #2cabe0;
     padding: 0 !important;
 }
+
+#logo {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #2cabe0;
+    border-color: #2cabe0;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2cabe0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+}
+
+/* END - SCROLLBAR */
 
 body {
     background-color: #F9FFFF;
@@ -61,6 +87,8 @@ footer {
 .nav-item {
     margin-left: 40px;
     margin-top: 10px;
+    color: #ffffff !important;
+    font-weight: 500;
 }
 
 .container-fluid {
