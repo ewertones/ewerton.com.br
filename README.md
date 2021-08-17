@@ -40,8 +40,8 @@ python main.py
 |   |       
 |   +---images # Fotos
 |   |       cheese.webp # Eu no lab fazendo queijo
-|   |       cmd.webm # Gif do cmd
-|   |       logo.png # Logo do site maior
+|   |       logo.jpg # Logo do site para compartilhamentos
+|   |       logo25.svg # Logo em alta definição
 |   |       me.webp # Minha foto
 |   |       translation_flyer.jpg # Flyer que envio aos clientes
 |   |       translation_flyer.webp # Flyer que envio aos clientes
