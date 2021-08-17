@@ -80,10 +80,6 @@ def home():
 def services():
     return render_template('services.html')
 
-@app.route('/tutorials')
-def tutorials():
-    return render_template('tutorials.html')
-
 @app.route('/vagas')
 @app.route('/jobs')
 def jobs():
@@ -99,6 +95,7 @@ def contact():
 
     if request.method == 'POST' and form.validate_on_submit():
         send_email(request.form)
+        form.raw.data = ""
         return render_template("contact.html", form=form, success=True)
 
     return render_template('contact.html', form=form)
