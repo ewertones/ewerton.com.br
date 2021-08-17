@@ -6,4 +6,134 @@
 </h1>
 <div class="line-h1"></div>
 
+<div class="">
+    <p>
+        I provide a whole range of services, which you can see below.<br />
+        If you need a more customized solution, feel free to contact me so we can discuss it.
+    </p>
+</div>
+
+<div id="service-block">
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-info job-status-btn" id="translationButton" type="button" data-bs-target=".translation" data-parent="#service-block">
+            Translation & Localization
+        </button>
+        <button class="btn btn-info job-status-btn" id="dataEngineeringButton" type="button" data-bs-target=".dataEngineer" data-parent="#service-block">
+            Data Engineering
+        </button>
+    </div>
+    <div class="services translation">
+        <div class="card card-translation">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <span>Software & Games</span>
+                </h4>
+                <p class="card-text">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+        <div class="card card-translation">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <span>Websites & Documents</span>
+                </h4>
+                <p class="card-text">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+        <div class="card card-translation">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <span>Audio & Video</span>
+                </h4>
+                <p class="card-text">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+        <div class="card card-translation">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <span>Testing Services</span>
+                </h4>
+                <p class="card-text">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="services dataEngineer">
+        <div class="card card-dataEngineer">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <span class="full-text">Build & Fix Pipelines</span>
+                    <span class="short-text">Build & Fix</span>
+                </h4>
+                <p class="card-text">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+        <div class="card card-dataEngineer">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <span>Databases</span>
+                </h4>
+                <p class="card-text">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+        <div class="card card-dataEngineer">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <span>Python</span>
+                </h4>
+                <p class="card-text">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+        <div class="card card-dataEngineer">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <span>Dashboards</span>
+                </h4>
+                <p class="card-text">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+        <div class="card card-dataEngineer">
+            <div class="card-body">
+                <h4 class="card-title d-flex justify-content-between">
+                    <span>Other tools</span>
+                </h4>
+                <p class="card-text">
+                    The quick brown fox jumps over the lazy dog.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#service-block').on('click', 'button', function () {
+                var target = $(this).data('bsTarget');
+                var notTarget = target === '.dataEngineer' ? '.translation' : '.dataEngineer';
+                if ($(target).is(":visible") && $(notTarget).is(":visible")) {
+                    $(notTarget).hide();
+                } else if ($(target).is(":visible") && $(notTarget).is(":hidden")) {
+                    $(notTarget).show();
+                } else {
+                    $(target).show();
+                    $(notTarget).hide();
+                }
+            });
+        });
+    </script>
+</div>
 {% endblock content %}

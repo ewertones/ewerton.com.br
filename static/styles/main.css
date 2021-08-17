@@ -17,8 +17,30 @@ nav {
     border-color: #2cabe0;
 }
 
-/* SCROLLBAR */
+#translationButton {
+    background-color: #AACCB1;
+    border-color: #AACCB1;
+}
 
+#dataEngineeringButton {
+    background-color: #68B3AF;
+    border-color: #68B3AF;
+}
+
+.card-translation {
+    border: 3px solid #AACCB1;
+}
+
+.card-dataEngineer {
+    border: 3px solid #68B3AF;
+}
+
+.card-text {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+/* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -139,6 +161,10 @@ footer {
 
 .short-text, .short-text-800 {
     display: none;
+}
+
+.card-title {
+    margin-top: 0;
 }
 
 @media screen and (max-width: 1000px) {
