@@ -95,7 +95,9 @@ def contact():
 
     if request.method == 'POST' and form.validate_on_submit():
         send_email(request.form)
-        form.raw.data = ""
+        form.name.data = ""
+        form.email.data = ""
+        form.message.data = ""
         return render_template("contact.html", form=form, success=True)
 
     return render_template('contact.html', form=form)
@@ -106,6 +108,7 @@ def raw():
 
     if request.method == 'POST' and form.validate_on_submit():
         send_to_db(request.form)
+        form.raw.data = ""
         return render_template("raw.html", form=form, success=True)
     
     return render_template('raw.html',  form=form)

@@ -40,8 +40,8 @@ python main.py
 |   |       
 |   +---images # Fotos
 |   |       cheese.webp # Eu no lab fazendo queijo
-|   |       cmd.webm # Gif do cmd
-|   |       logo.png # Logo do site maior
+|   |       logo.jpg # Logo do site para compartilhamentos
+|   |       logo25.svg # Logo em alta definição
 |   |       me.webp # Minha foto
 |   |       translation_flyer.jpg # Flyer que envio aos clientes
 |   |       translation_flyer.webp # Flyer que envio aos clientes
@@ -58,9 +58,6 @@ python main.py
         home.html # Página Inicial
         jobs.html # Vagas
         layout.html # Base para todas as páginas
+        raw.html # Endpoint para enviar emails
         services.html # Serviços que oferto
-        tutorials.html # Tutoriais que faço
 ```
-## \#ToDo
-1. Create services page
-2. Create tutorials page
