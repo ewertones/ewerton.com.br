@@ -58,9 +58,6 @@ python main.py
         home.html # Página Inicial
         jobs.html # Vagas
         layout.html # Base para todas as páginas
+        raw.html # Endpoint para enviar emails
         services.html # Serviços que oferto
-        tutorials.html # Tutoriais que faço
 ```
-## \#ToDo
-1. Create services page
-2. Create tutorials page
