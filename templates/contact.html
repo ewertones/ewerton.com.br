@@ -1,45 +1,45 @@
 {% extends "layout.html" %}
 {% block content %}
-
-{% if success %}
+<main role="main" class="container">
+    {% if success %}
     <div class="alert alert-success" role="alert">
         Your message has been sent successfully!
     </div>
-{% endif %}
+    {% endif %}
 
-{% for field in form.errors %}
+    {% for field in form.errors %}
     {% for error in form.errors[field] %}
-        <div class="alert alert-danger" role="alert">
-            {{ field.upper() }}: {{ error }}
-        </div>
+    <div class="alert alert-danger" role="alert">
+        {{ field.upper() }}: {{ error }}
+    </div>
     {% endfor %}
-{% endfor %}
+    {% endfor %}
 
-<!-- Title -->
-<h1>
-    Contact
-</h1>
-<div class="line-h1"></div>
+    <!-- Title -->
+    <h1>
+        Contact
+    </h1>
+    <div class="line-h1"></div>
 
-<div>
-    <p>If you want to send me a message, you can use this form. I will probably read it in under 24 hours.</p>
-</div>
+    <div>
+        <p>If you want to send me a message, you can use this form. I will probably read it in under 24 hours.</p>
+    </div>
 
-<form method="POST" action="{{ url_for('contact') }}">
-    {{ form.csrf_token }}
+    <form method="POST" action="{{ url_for('contact') }}">
+        {{ form.csrf_token }}
 
-    {{ form.name.label }}
-    {{ form.name(class = "form-control mb-3") }}
+        {{ form.name.label }}
+        {{ form.name(class = "form-control mb-3") }}
 
-    {{ form.email.label }}
-    {{ form.email(class = "form-control mb-3") }}
+        {{ form.email.label }}
+        {{ form.email(class = "form-control mb-3") }}
 
-    {{ form.message.label }}
-    {{ form.message(rows=5, class="form-control mb-3") }}
+        {{ form.message.label }}
+        {{ form.message(rows=5, class="form-control mb-3") }}
 
-    {{ form.recaptcha(class = 'mb-3') }}
+        {{ form.recaptcha(class = 'mb-3') }}
 
-    <button type="submit" value="submit" class="btn btn-primary text-center d-grid gap-2 col-6 mx-auto mt-3">Send</button>
-</form>
-
+        <button type="submit" value="submit" class="btn btn-primary text-center d-grid gap-2 col-6 mx-auto mt-3">Send</button>
+    </form>
+</main>
 {% endblock content %}
