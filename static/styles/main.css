@@ -1,4 +1,3 @@
-/* MAIN TAGS */
 body {
     font: 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
@@ -39,7 +38,7 @@ footer {
     color: darkgray;
     margin-top: 20px;
     padding-top: 20px;
-    height: 100px;
+    height: 120px;
     font-size: 16px;
     font-weight: 500;
     line-height: 28px;
@@ -61,7 +60,10 @@ figure {
     float: right;
 }
 
-/* CLASSES */
+br.responsive {
+    display: none;
+}
+
 .btn-primary {
     background-color: #2cabe0;
     border-color: #2cabe0;
@@ -74,9 +76,9 @@ figure {
 }
 
 .vagaFechada {
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
-    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
 }
 
 .alert {
@@ -148,14 +150,6 @@ figure {
     padding: 25px;
 }
 
-.card-hall-title {
-
-}
-
-.card-hall-body {
-
-}
-
 .card-title {
     font-size: 34px;
     font-weight: 700;
@@ -196,7 +190,6 @@ figure {
     font-weight: 700;
 }
 
-/* IDs */
 .img-brasil {
     margin: 0 auto;
     position: relative;
@@ -225,7 +218,6 @@ figure {
     border-color: #68B3AF;
 }
 
-/* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -238,7 +230,6 @@ figure {
     background: #ffffff;
 }
 
-/* RESPONSIVE */
 @media screen and (max-width: 1500px) {
     .testimonials {
         grid-template-columns: repeat(3, 33%);
@@ -279,6 +270,10 @@ figure {
     #my-photo {
         width: 150px;
         height: 150px;
+    }
+
+    br.responsive {
+        display: inline;
     }
 }
 
