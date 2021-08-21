@@ -1,111 +1,53 @@
-header {
-    margin: 0 -30px 0 -30px;
+/* MAIN TAGS */
+body {
+    font: 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-nav {
-    background-color: #2cabe0;
-    padding: 0 !important;
+main {
+    max-width: 1000px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    color: #444;
+    line-height: 1.3;
 }
 
-#logo {
-    padding-top: 10px;
-    padding-bottom: 10px;
+h1 {
+    font-size: 60px;
+    font-weight: 800;
+    text-align: center;
 }
 
-.btn-primary {
-    background-color: #2cabe0;
-    border-color: #2cabe0;
-}
-
-#translationButton {
-    background-color: #AACCB1;
-    border-color: #AACCB1;
-}
-
-#dataEngineeringButton {
-    background-color: #68B3AF;
-    border-color: #68B3AF;
-}
-
-.card-translation {
-    border: 3px solid #AACCB1;
-}
-
-.card-dataEngineer {
-    border: 3px solid #68B3AF;
-}
-
-.card-text {
-    margin-top: 20px !important;
-    margin-bottom: 20px !important;
-}
-
-/* HOME PAGE */
-
-.img-brasil::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    border: solid 6px #2cabe0;
-    position: absolute;
-    top: -30px;
-    right: -30px;
-    text-align: right;
-}
-
-#btn-services {
-    margin-left: 25%;
-    margin-right: 25%;
-}
-
-.bg-gray {
-    background-color: #F8F8F8;
-    z-index: -1;
-}
-
-.testimonials {
-    border-right: 6px solid #2cabe0;
-    text-align: right;
-}
-
-.clients {
+h2 {
+    text-align: center;
     color: #2cabe0;
     font-weight: 700;
-    font-size: 42px;
+    font-size: 48px;
 }
 
-.clients-block {
-    margin-top: 100px;
-    margin-bottom: 0px;
-}
-
-#words-number, #projects-number {
-    font-size: 64px;;
-    font-weight: 900;
-    margin-bottom: 0;
-}
-
-.under-number {
+h4 {
     font-size: 36px;
     font-weight: 500;
 }
 
-.clients-container {
-    margin-top: 120px;
-    margin-bottom: 100px;
+h5 {
+    line-height: 1.5;
 }
 
-.warning-home {
-    margin-bottom: 50px;
+footer {
     text-align: center;
-    letter-spacing: 1px;
+    color: darkgray;
+    margin-top: 20px;
+    z-index: -999;
+    width: 100%;
 }
 
-.title {
-    font-size: 40px;
+nav {
+    background-color: #2cabe0;
 }
 
-.game-icon {
+p {
+    font-size: 20px;
+    line-height: 31px;
 }
 
 /* SCROLLBAR */
@@ -121,93 +63,94 @@ nav {
     background: #ffffff;
 }
 
-/* END - SCROLLBAR */
-
-body {
-    font: 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+/* CLASSES */
+.btn-primary {
+    background-color: #2cabe0;
+    border-color: #2cabe0;
 }
 
-main {
-    max-width: 1000px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-top: 5px;
-    padding: 0;
-    color: #444;
-    line-height: 1.3;
+.status-btn {
+    margin-left: 5px;
 }
 
-h1 {
-    font-size: 60px;
-    font-weight: 800;
-    text-align: center;
+.card-translation {
+    border: 3px solid #AACCB1;
 }
 
-h2 {
-    font-weight: 700;
-    color: #2cabe0;
+.card-dataEngineer {
+    border: 3px solid #68B3AF;
+}
+
+.card-body {
     margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.vagaFechada {
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+.alert {
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
-h4 {
-    font-weight: 600;
+.bg-gray {
+    background-color: #F8F8F8;
+    z-index: -1;
 }
 
-h5 {
-    line-height: 1.5;
-}
-
-ul {
-    line-height: 1.7;
-}
-
-video {
-    max-width: 100%;
-}
-
-footer {
-    text-align: center;
-    color: darkgray;
-    margin: 20px;
-    z-index: -999;
+.img-brasil::before {
+    content: '';
     width: 100%;
-    bottom: 0;
+    height: 100%;
+    border: solid 6px #2cabe0;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    text-align: right;
+}
+
+.home-block {
+    margin-top: 100px;
+}
+
+.big-blue-number {
+    font-size: 64px;
+    font-weight: 900;
+    color: #2cabe0;
+}
+
+.numbers-container {
+    margin-top: 120px;
+    margin-bottom: 100px;
 }
 
 .nav-item {
-    margin-left: 40px;
-    margin-top: 10px;
     color: #ffffff !important;
     font-weight: 500;
-}
-
-.container-fluid {
-    max-width: 1000px;
-    padding: 0;
+    margin-left: 50px;
 }
 
 .navbar-toggler {
     width: 100%;
 }
 
-.line-h1, .line-h2 {
+.line-h1 {
+    width: 40%;
     display: block;
     height: 4px;
     margin: 0 auto 40px auto;
     background-image: radial-gradient(circle, rgba(65,108,177,1) 0%, rgba(252,209,17,1) 35%, rgba(19,87,40,1) 100%);
-}
-
-.line-h1 {
-    width: 50%;
-}
-
-.line-h2 {
-    width: 17%;
-}
-
-.form-check {
-    margin: 0 0 12px 0;
 }
 
 .caption {
@@ -220,65 +163,28 @@ footer {
     margin-top: 20px;
 }
 
-.job-status-btn {
-    margin-left: 10px;
-}
-
 .job-number {
-    color: #c7c7c7
+    color: #c7c7c7;
 }
 
-.short-text, .short-text-800 {
-    display: none;
+.half-button {
+    max-width: 50%;
 }
 
-.card-title {
-    margin-top: 0;
+/* IDs */
+#translationButton {
+    background-color: #AACCB1;
+    border-color: #AACCB1;
 }
 
-@media screen and (max-width: 1000px) {
-    body {
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-
-    .short-text {
-        display: inline-block;
-    }
-
-    .full-text {
-        display: none;
-    }
-
-    h2 {
-        margin-top: 20px;
-        margin-bottom: 5px;
-    }
-
-    .line-h2 {
-        margin-bottom: 20px;
-    }
+#dataEngineeringButton {
+    background-color: #68B3AF;
+    border-color: #68B3AF;
 }
 
+/* RESPONSIVE */
 @media screen and (max-width: 800px) {
-    .caption {
-        display: none;
-    }
-
-    #random_gif {
-        max-width: 100%;
-        height: auto;
-    }
-
-    img {
-        display: block;
-    }
-
-    .short-text-800 {
-        display: inline-block;
-    }
-
-    .full-text-800 {
+    #logo {
         display: none;
     }
 }

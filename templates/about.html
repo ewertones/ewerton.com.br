@@ -1,21 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
-<main role="main" class="container">
-    <!-- Title -->
-    <h1>
-        About me
-    </h1>
+<div class="container">
+    <h1>About me</h1>
     <div class="line-h1"></div>
 
-
     <div class="row mb-3">
-        <div class="col-md-3 short-text-800">
-            <img src="{{ url_for('static', filename='images/cheese.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Ewerton making cheese" width="300px" height="300px" />
-            <div class="caption center-block">Making cheese in the lab years ago</div>
-        </div>
         <div class="col-md-9">
             <p>
-                Hi, my name is Ewerton. I have 25 years old and I live in Brazil <img src="{{ url_for('static', filename='/icons/brazil.svg') }}" class="full-text" width="16" height="16"> .
+                Hi, my name is Ewerton. I have 25 years old and I live in Brazil <img src="{{ url_for('static', filename='/icons/brazil.svg') }}" width="16" height="16"> .
                 My favorite hobby is to learn new things. I like to code, especially with Python, but I can make some <em>Hello Worlds</em> in C++, Java, Javascript, C, MATLAB, R...
                 With StackOverflow and Youtube, everything is possible.
             </p>
@@ -28,18 +20,18 @@
                 and although it helped me grasp some concepts, it is the last language that I would use for anything, so... don't learn it, Python is better.
             </p>
         </div>
-        <div class="col-md-3 full-text-800">
+        <div class="col-md-3">
             <img src="{{ url_for('static', filename='images/cheese.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Ewerton making cheese" width="300px" height="300px" />
             <div class="caption center-block">Making cheese in the lab years ago</div>
         </div>
     </div>
 
     <div class="row mb-3">
-        <div class="col-md-3">
-            <a href="{{ url_for('get_flyer') }}" target="_blank" class="link-primary"><img src="{{ url_for('static', filename='images/translation_flyer.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Translation flyer" width="300px" height="430px" /></a>
-            <div class="caption center-block">The flyer that I sent</div>
+        <div class="col-md-2">
+            <a href="{{ url_for('get_flyer') }}" target="_blank" class="link-primary"><img src="{{ url_for('static', filename='images/translation_flyer.webp') }}" class="img-thumbnail rounded img-fluid mx-auto" alt="Translation flyer" width="230px" height="330px" /></a>
+            <div class="caption center-block">Flyer that I sent</div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10">
             <p>
                 My first professional experience happenned with this company. I started translating things from English, French, and Spanish to Portuguese.
                 In the beginning, the goal was just to learn a new language, but after some time, I saw an opportunity to grow and I took it.
@@ -60,14 +52,14 @@
         Some time after I created the company, I got a job as a Data Analyst from a company called BeGrowth. I had to extract reports from our ads that were running in Google and Facebook Ads,
         then merge them with some other reports to finally show the results to my former boss so he could change whatever needed to be changed.
         It was a boring task to manually merge those files, so I created a Python script that did everything in 3 minutes and saved myself 57 minutes/day, yay
-        <img src="{{ url_for('static', filename='/icons/clock.svg') }}" class="full-text" width="16" height="16">.
+        <img src="{{ url_for('static', filename='/icons/clock.svg') }}" width="16" height="16">.
     </p>
     <p>
         I started helping them manage those ads. It was a nice experience, I learned some concepts in Marketing, Google Tag Manager, Analytics,
         and some other tools, and helped them grow 10 times what they were investing.
     </p>
 
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-md-10">
             <p>
                 After 6 months, I was promoted to Data Engineer. My first task was to make my script run on Cloud. I used a VM in GCP, running a Docker container
@@ -81,16 +73,17 @@
                 To conclude, I am an awesome dude that really likes life and looks forward to the bright future that arises.
             </p>
         </div>
-        <div class="col-md-2 full-text-800" id="random_gif">
-            <div data-iframe-width="150" data-iframe-height="250" data-share-badge-id="ac64f6d1-584e-46b9-879a-1bc81944bfbb" data-share-badge-host="https://www.credly.com"></div>
+        <div class="col-md-2" id="random_gif">
+            <div data-iframe-width="190" data-iframe-height="270" data-share-badge-id="ac64f6d1-584e-46b9-879a-1bc81944bfbb" data-share-badge-host="https://www.credly.com"></div>
             <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
             <div class="caption center-block">1<sup>st</sup> certification :)</div>
         </div>
+
         <p>
             Thanks for reading! If you want, you can write me at:
-            <img src="{{ url_for('static', filename='/icons/envelope.svg') }}" class="full-text" width="16" height="16">
+            <img src="{{ url_for('static', filename='/icons/envelope.svg') }}" width="16" height="16">
             <strong><a href="mailto:ewerton@ewerton.com.br" class="link-primary">ewerton@ewerton.com.br</a></strong>
         </p>
     </div>
-</main>
+</div>
 {% endblock content %}

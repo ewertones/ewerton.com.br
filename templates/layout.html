@@ -1,14 +1,13 @@
 ﻿<!doctype html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-22768793-2"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MFH72L1LCE"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
-        gtag('config', 'UA-22768793-2');
+        gtag('config', 'G-MFH72L1LCE');
     </script>
 
     <!-- Page title -->
@@ -27,48 +26,40 @@
     <meta property="og:type" content="website">
     <meta property="og:updated_time" content="2021-08-18T14:57:54-03:00">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
+    <!-- Main CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
 </head>
 <body>
     <!-- Bootstrap Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
     <!-- Jquery -->
-    <script type=text/javascript src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <header class="site-header">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-                <a class="navbar-brand full-text" id="logo" href="{{ url_for('home') }}">
-                    <img src="{{ url_for('static', filename='images/logo25.svg') }}" width="175" height="70" class="d-inline-block align-top" alt="Ewerton Solutions">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
-                        <a class="nav-item nav-link" href="{{ url_for('services') }}">Services</a>
-                        <a class="nav-item nav-link" href="{{ url_for('jobs') }}">Jobs</a>
-                        <a class="nav-item nav-link" href="{{ url_for('about') }}">About me</a>
-                        <a class="nav-item nav-link" href="{{ url_for('contact') }}">Contact</a>
-                    </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" id="logo" href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/logo25.svg') }}" width="175" height="70" class="d-inline-block align-top" alt="Ewerton Solutions">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+                    <a class="nav-item nav-link" href="{{ url_for('services') }}">Services</a>
+                    <a class="nav-item nav-link" href="{{ url_for('jobs') }}">Jobs</a>
+                    <a class="nav-item nav-link" href="{{ url_for('about') }}">About me</a>
+                    <a class="nav-item nav-link" href="{{ url_for('contact') }}">Contact</a>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     {% block content %}{% endblock content %}
 
-    <!-- Footer -->
-    <footer>
-        <span class="full-text">©2019 - EWERTON SOLUTIONS - CNPJ:39.633.105/0001-13</span>
-        <span class="short-text">©2019 - EWERTON SOLUTIONS</span>
-    </footer>
+    <footer>©2019 - EWERTON SOLUTIONS - CNPJ:39.633.105/0001-13</footer>
 </body>
 </html>

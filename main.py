@@ -1,18 +1,21 @@
 import os
 from flask import Flask, render_template, send_from_directory, url_for, request
 from flask_wtf import FlaskForm, RecaptchaField
-from wtforms import StringField, TextAreaField, FileField, SubmitField, validators
+from wtforms import StringField, TextAreaField, FileField, SubmitField, MultipleFileField, validators
 from wtforms.fields.html5 import EmailField
 from mailjet_rest import Client
 from google.cloud import bigquery
 from datetime import datetime
 import re
+from base64 import b64encode
+import logging
 
 
 class ContactForm(FlaskForm):
     name = StringField('Name:', [validators.InputRequired('?'), validators.Length(max=255)])
     email = EmailField('Email:', [validators.InputRequired('??'), validators.Email()])
     message = TextAreaField('Message:', [validators.InputRequired('???')])
+    upload = MultipleFileField('Upload File(s):')
     recaptcha = RecaptchaField()
 
 class RawEmailsForm(FlaskForm):
@@ -34,39 +37,44 @@ def send_to_db(params):
     client = bigquery.Client()
     query_job = client.query(query)
 
-def send_email(params):
+def send_email(params, attachments):
     """ Use Mailjet API to send email """
     MAILJET_KEY = '87d785b193f39adcf6aa35e8fad9af27'
     MAILJET_SECRET = 'a14f61549fa49e97a4a774cf0b00fa95'
     mailjet = Client(auth=(MAILJET_KEY, MAILJET_SECRET), version='v3.1')
 
     email = {
-        "Messages": [
+      "Messages": [
+        {
+          "From": {
+            "Email": "ewerton@ewerton.com.br",
+            "Name": "Ewerton E. de Souza"
+          },
+          "To": [
             {
-                "From": {
-                "Email": "ewerton@ewerton.com.br",
-                "Name": "Ewerton E. de Souza"
-                },
-                "To": [
-                {
-                "Email": 'ewerton@ewerton.com.br'
-                }
-                ],
-            "Subject": "ewerton.com.br - Contact Form",
-            "HTMLPart": f"Name: {params.get('name')} <br/><br/> Email: {params.get('email')} <br/><br/> Message: {params.get('message')}",
+              "Email": "ewerton@ewerton.com.br"
+            }
+          ],
+          "Subject": f"{params.get('name')} - Contact Form",
+          "HTMLPart": f"Email: {params.get('email')} <br/><br/>{params.get('message')}",
+          "Attachments": attachments
         }
-        ]
+      ]
     }
+
     try:
         result = mailjet.send.create(data=email)
+        app.logger.info(result.json())
     except Exception as exception:
-        print(exception)
+        app.logger.error(exception)
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '22bfddd8e6ca2a4739723034f02ced9c3014a8892d9bace1'
 app.config['RECAPTCHA_USE_SSL'] = False
 app.config['RECAPTCHA_PUBLIC_KEY'] = '6LdQn1obAAAAAE1lwWFuBqFbbo7CbxX6K-jDp_Kg'
 app.config['RECAPTCHA_PRIVATE_KEY'] ='6LdQn1obAAAAAJHisBMReP5ihnXguwWYAyaQg3dx'
+logging.basicConfig(level=logging.DEBUG)
 
 @app.route('/favicon.ico')
 def favicon():
@@ -94,10 +102,20 @@ def contact():
     form = ContactForm()
 
     if request.method == 'POST' and form.validate_on_submit():
-        send_email(request.form)
+        attachments = []
+        files = request.files.getlist(form.upload.name)
+        if files:
+            for file in files:
+                attachments.append({
+                    "ContentType": file.mimetype,
+                    "Filename": file.filename,
+                    "Base64Content": b64encode(file.read()).decode('utf-8')
+                })
+        send_email(request.form, attachments)
         form.name.data = ""
         form.email.data = ""
         form.message.data = ""
+        form.upload.data = ""
         return render_template("contact.html", form=form, success=True)
 
     return render_template('contact.html', form=form)

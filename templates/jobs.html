@@ -1,17 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
-<main role="main" class="container">
+<div class="container">
     <div class="alert alert-info" role="alert">
-        <img src="{{ url_for('static', filename='/icons/usa.svg') }}" class="full-text" width="25" height="25"> Hello, this page is purposely written in Portuguese! Sorry for the incovenience.
+        <img src="{{ url_for('static', filename='/icons/usa.svg') }}" width="25" height="25"> Hello, this page is purposely written in Portuguese! Sorry for the incovenience.
     </div>
 
-    <!-- Title -->
-    <h1>
-        Vagas
-    </h1>
+    <h1>Vagas</h1>
     <div class="line-h1"></div>
 
-    <!-- First block -->
     <div>
         <p>
             Estou precisando de ajuda com umas tarefas.<br />
@@ -21,24 +17,23 @@
 
     <div id="vagas-block">
         <div class="d-flex justify-content-end">
-            <button class="btn btn-success job-status-btn" type="button" data-bs-toggle="collapse" data-bs-target=".vagaAberta" data-parent="#vagas-block">
+            <button class="btn btn-success status-btn" id="abertaButton" type="button" data-bs-target=".vagaAberta" data-parent="#vagas-block">
                 ABERTAS
             </button>
-            <button class="btn btn-secondary job-status-btn" type="button" data-bs-toggle="collapse" data-bs-target=".vagaFechada" data-parent="#vagas-block">
+            <button class="btn btn-secondary status-btn" id="fechadaButton" type="button" data-bs-target=".vagaFechada" data-parent="#vagas-block">
                 ENCERRADAS
             </button>
         </div>
-        <div class="vagas vagaAberta show">
+        <div class="vagas vagaAberta">
             <div class="card">
                 <div class="card-body">
                     <div class="row d-flex flex-wrap align-items-center">
                         <div class="col-md-1">
-                            <img src="{{ url_for('static', filename='/icons/talk.svg') }}" class="full-text" width="64" height="64">
+                            <img src="{{ url_for('static', filename='/icons/talk.svg') }}" width="64" height="64">
                         </div>
                         <div class="col-md-11">
                             <h4 class="card-title d-flex justify-content-between">
-                                <span class="full-text">Tradutor Inglês/Português</span>
-                                <span class="short-text">Tradutor Inglês</span>
+                                <span>Tradutor Inglês/Português</span>
                                 <div class="job-number">#03</div>
                             </h4>
                             <p class="card-text">
@@ -53,12 +48,11 @@
                 <div class="card-body">
                     <div class="row d-flex flex-wrap align-items-center">
                         <div class="col-md-1">
-                            <img src="{{ url_for('static', filename='/icons/python.svg') }}" class="full-text" width="64" height="64">
+                            <img src="{{ url_for('static', filename='/icons/python.svg') }}" width="64" height="64">
                         </div>
                         <div class="col-md-11">
                             <h4 class="card-title d-flex justify-content-between">
-                                <span class="full-text">Desenvolvedor Python Jr.</span>
-                                <span class="short-text">Dev. Python Jr.</span>
+                                <span>Desenvolvedor Python Jr.</span>
                                 <div class="job-number">#04</div>
                             </h4>
                             <p class="card-text">
@@ -75,7 +69,7 @@
                 <div class="card-body">
                     <div class="row d-flex flex-wrap align-items-center">
                         <div class="col-md-1">
-                            <img src="{{ url_for('static', filename='/icons/mail.svg') }}" class="full-text" width="64" height="64">
+                            <img src="{{ url_for('static', filename='/icons/mail.svg') }}" width="64" height="64">
                         </div>
                         <div class="col-md-11">
                             <h4 class="card-title d-flex justify-content-between">
@@ -93,12 +87,11 @@
                 <div class="card-body">
                     <div class="row d-flex flex-wrap align-items-center">
                         <div class="col-md-1">
-                            <img src="{{ url_for('static', filename='/icons/talk.svg') }}" class="full-text" width="64" height="64">
+                            <img src="{{ url_for('static', filename='/icons/talk.svg') }}" width="64" height="64">
                         </div>
                         <div class="col-md-11">
                             <h4 class="card-title d-flex justify-content-between">
-                                <span class="full-text">Tradutor Inglês/Português</span>
-                                <span class="short-text">Tradutor Inglês</span>
+                                <span>Tradutor Inglês/Português</span>
                                 <div class="job-number">#02</div>
                             </h4>
                             <p class="card-text">
@@ -112,12 +105,11 @@
                 <div class="card-body">
                     <div class="row d-flex flex-wrap align-items-center">
                         <div class="col-md-1">
-                            <img src="{{ url_for('static', filename='/icons/html.svg') }}" class="full-text" width="64" height="64">
+                            <img src="{{ url_for('static', filename='/icons/html.svg') }}" width="64" height="64">
                         </div>
                         <div class="col-md-11">
                             <h4 class="card-title d-flex justify-content-between">
-                                <span class="full-text">Desenvolvedor Front-end Jr.</span>
-                                <span class="short-text">Dev. Front-end Jr.</span>
+                                <span>Desenvolvedor Front-end Jr.</span>
                                 <div class="job-number">#05</div>
                             </h4>
                             <p class="card-text">
@@ -130,11 +122,17 @@
             </div>
         </div>
         <script type="text/javascript">
-            var $vagas = $('#vagas-block');
-            $vagas.on('show.bs.collapse', '.vagas', function () {
-                $vagas.find('.show').collapse('hide');
+            $(document).ready(function () {
+                $('#vagas-block').on('click', 'button', function () {
+                    var target = $(this).data('bsTarget');
+                    var notTarget = target === '.vagaAberta' ? '.vagaFechada' : '.vagaAberta';
+                    if ($(target).is(":hidden")) {
+                        $(target).show();
+                        $(notTarget).hide();
+                    }
+                });
             });
         </script>
     </div>
-</main>
+</div>
 {% endblock content %}

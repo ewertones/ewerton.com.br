@@ -2,16 +2,14 @@
 {% block content %}
 
 <div class="container">
-    <div class="row mt-3 mb-3">
-        <div class="alert alert-warning warning-home" role="alert">
-            <img src="{{ url_for('static', filename='/icons/warning.svg') }}" class="full-text pb-1" width="25" height="25"> Hi! I'm still building this page. Sorry for any incovenience.
-        </div>
+    <div class="alert alert-warning warning-home" role="alert">
+        <img src="{{ url_for('static', filename='/icons/warning.svg') }}" width="25" height="25"> I'm still building this page. Sorry for any incovenience.
     </div>
     <div class="row">
         <div class="col-md-6">
             <h2 class="text-center mt-3 mb-3 title">Let me help you!</h2>
             <h5 class="text-center mt-3 mb-3">Are you looking for Translators,<br />Data Engineers, Developers<br />or Analysts to solve a problem<br />or improve some process?<br />Well, here I am!</h5>
-            <a href="{{ url_for('services') }}" class="btn btn-primary btn-lg d-grid rounded-pill" id="btn-services">Services</a>
+            <a href="{{ url_for('services') }}" class="btn btn-primary btn-lg d-grid rounded-pill mx-auto half-button">Services</a>
         </div>
         <div class="mt-3 col-md-5 offset-md-1">
             <div class="position-relative">
@@ -23,15 +21,15 @@
     </div>
 </div>
 
-<div class="bg-gray position-relative text-center overflow-hidden clients-block">
-    <div class="container clients-container">
+<div class="bg-gray position-relative text-center overflow-hidden home-block">
+    <div class="container numbers-container">
         <div class="row">
             <div class="col-md-6">
-                <h2 id="words-number">200000</h2>
+                <h4 id="words-number" class="big-blue-number">200000</h4>
                 <h4 class="under-number">words translated!</h4>
             </div>
             <div class="col-md-6">
-                <h2 id="projects-number">10</h2>
+                <h4 id="projects-number" class="big-blue-number">10</h4>
                 <h4 class="under-number">projects delivered!</h4>
             </div>
         </div>
@@ -39,7 +37,7 @@
 </div>
 <div class="container mt-5 mb-5 position-relative text-center overflow-hidden">
     <div class="row mt-3 mb-3">
-        <h2 class="clients">CLIENTS</h2>
+        <h2>CLIENTS</h2>
     </div>
 
     <div class="row text-center">
@@ -103,12 +101,9 @@
 <!-- Script to animate numbers -->
 <script>
     function animateValue(id, start, end, duration) {
-        console.log(1)
         var obj = document.getElementById(id);
         var range = end - start;
-        var minTimer = 50;
         var stepTime = Math.abs(Math.floor(duration / range));
-        stepTime = Math.max(stepTime, minTimer);
         var startTime = new Date().getTime();
         var endTime = startTime + duration;
         var timer;
