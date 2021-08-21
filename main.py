@@ -1,14 +1,14 @@
 import os
-from flask import Flask, render_template, send_from_directory, url_for, request
-from flask_wtf import FlaskForm, RecaptchaField
-from wtforms import StringField, TextAreaField, FileField, SubmitField, MultipleFileField, validators
-from wtforms.fields.html5 import EmailField
+import re
+import logging
+from base64 import b64encode
+from datetime import datetime
 from mailjet_rest import Client
 from google.cloud import bigquery
-from datetime import datetime
-import re
-from base64 import b64encode
-import logging
+from flask_wtf import FlaskForm, RecaptchaField
+from flask import Flask, render_template, send_from_directory, request
+from wtforms import StringField, TextAreaField, MultipleFileField, validators
+from wtforms.fields.html5 import EmailField
 
 
 class ContactForm(FlaskForm):
@@ -33,9 +33,9 @@ def send_to_db(params):
             entries.append(f"('{now}', '{email}')")
     values = ', '.join(entries)
     query = f'INSERT INTO `ewerton-com-br.emails.raw` VALUES {values}'
-    
+
     client = bigquery.Client()
-    query_job = client.query(query)
+    client.query(query)
 
 def send_email(params, attachments):
     """ Use Mailjet API to send email """
@@ -128,7 +128,7 @@ def raw():
         send_to_db(request.form)
         form.raw.data = ""
         return render_template("raw.html", form=form, success=True)
-    
+
     return render_template('raw.html',  form=form)
 
 @app.route('/robots.txt')
@@ -138,16 +138,22 @@ def static_from_root():
 
 @app.route('/cv/<lang>')
 def get_pdf(lang='en'):
-    return send_from_directory(os.path.join(app.root_path, 'static'), f'documents/cv_ewerton_{lang}.pdf', mimetype='application/pdf')
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               f'documents/cv_ewerton_{lang}.pdf',
+                               mimetype='application/pdf')
 
 @app.route('/translations')
 def get_flyer():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'documents/translation_flyer.pdf', mimetype='application/pdf')
-    
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'documents/translation_flyer.pdf',
+                               mimetype='application/pdf')
+
 @app.route('/img/translations')
 def get_jpg_flyer():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'images/translation_flyer.jpg', mimetype='image/jpeg')
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'images/translation_flyer.jpg',
+                               mimetype='image/jpeg')
 
-# Start server
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

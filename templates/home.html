@@ -1,98 +1,113 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<div class="container">
-    <div class="alert alert-warning warning-home" role="alert">
-        <img src="{{ url_for('static', filename='/icons/warning.svg') }}" width="25" height="25"> I'm still building this page. Sorry for any incovenience.
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <h2 class="text-center mt-3 mb-3 title">Let me help you!</h2>
-            <h5 class="text-center mt-3 mb-3">Are you looking for Translators,<br />Data Engineers, Developers<br />or Analysts to solve a problem<br />or improve some process?<br />Well, here I am!</h5>
+<div class="container mt-5">
+    <div class="align-items-center onetwo-block">
+        <div>
+            <h2>Let me help you!</h2>
+            <h5 class="mt-5 mb-5">Are you looking for Translators,<br />Data Engineers, Developers<br />or Analysts to solve a problem<br />or improve some process?<br />Well, here I am!</h5>
             <a href="{{ url_for('services') }}" class="btn btn-primary btn-lg d-grid rounded-pill mx-auto half-button">Services</a>
         </div>
-        <div class="mt-3 col-md-5 offset-md-1">
-            <div class="position-relative">
-                <div class="img-brasil position-absolute">
-                    <img src="{{ url_for('static', filename='images/brasil-code.jpg') }}" class="img-fluid" alt="" width="400px" height="400px">
-                </div>
+        <div>
+            <div class="img-brasil">
+                <img src="{{ url_for('static', filename='images/brasil-code.jpg') }}" alt="" width="400px" height="400px">
             </div>
         </div>
     </div>
 </div>
 
-<div class="bg-gray position-relative text-center overflow-hidden home-block">
-    <div class="container numbers-container">
-        <div class="row">
-            <div class="col-md-6">
-                <h4 id="words-number" class="big-blue-number">200000</h4>
-                <h4 class="under-number">words translated!</h4>
-            </div>
-            <div class="col-md-6">
-                <h4 id="projects-number" class="big-blue-number">10</h4>
-                <h4 class="under-number">projects delivered!</h4>
-            </div>
-        </div>
+<div class="bg-gray mt-5 mb-5 pt-5 pb-5">
+    <div class="container onetwo-block">
+        <h4 class="mtb-50"><span id="words-number" class="big-blue-number">200000</span><br />words translated!</h4>
+        <h4 class="mtb-50"><span id="projects-number" class="big-blue-number">10</span><br />projects delivered!</h4>
     </div>
 </div>
-<div class="container mt-5 mb-5 position-relative text-center overflow-hidden">
-    <div class="row mt-3 mb-3">
-        <h2>CLIENTS</h2>
+
+<div class="container text-center mtb-50">
+    <div class="row mb-5">
+        <h2>HALL OF FAME</h2>
     </div>
 
-    <div class="row text-center">
-        <div class="card col-sm me-2 mt-2" style="width: 15rem;">
-            <a href="https://play.google.com/store/apps/details?id=com.quickturtle.EmployeeSurvival_en" target="_blank">
-                <img src="{{ url_for('static', filename='icons/clients/dont-get-fired.webp') }}" class="mx-auto mt-3 rounded-3" alt="" width="170" height="170">
-            </a>
-            <div class="card-body">
-                <h5 class="card-title">Don't get fired</h5>
-                <p class="card-text"><cite class="fst-italic">"I did not know you'd give me so quickly. Thank you very much!"</cite></p>
+    <div class="testimonials">
+        <div class="card testimonial">
+            <div class="card-hall-body">
+                <a href="https://play.google.com/store/apps/details?id=com.quickturtle.EmployeeSurvival_en" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/clients/dont-get-fired.webp') }}" alt="" width="170" height="170">
+                </a>
+                <h5 class="card-hall-title">Don't get fired</h5>
+                <cite class="fst-italic card-text">"I did not know you'd give me so quickly. Thank you very much!"</cite>
             </div>
         </div>
-        <div class="card col-sm me-2 mt-2" style="width: 15rem;">
-            <a href="https://play.google.com/store/apps/details?id=com.NNGames.starchef2" target="_blank">
-                <img src="{{ url_for('static', filename='icons/clients/star-chef-2.webp') }}" class="mx-auto mt-3 rounded-3" alt="" width="170" height="170">
-            </a>
-            <div class="card-body">
-                <h5 class="card-title">Star Chef 2</h5>
-                <p class="card-text"><cite class="fst-italic">"Hi Ewerton, thanks for the translations."</cite></p>
+        <div class="card testimonial">
+            <div class="card-hall-body">
+                <a href="https://play.google.com/store/apps/details?id=com.NNGames.starchef2" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/clients/star-chef-2.webp') }}" alt="" width="170" height="170">
+                </a>
+                <h5 class="card-hall-title">Star Chef 2</h5>
+                <cite class="fst-italic card-text">"Hi Ewerton, thanks for the translations."</cite>
             </div>
         </div>
-        <div class="card col-sm me-2 mt-2" style="width: 15rem;">
-            <a href="https://store.steampowered.com/app/655740/Tallowmere_2_A_Maldio_dos_Gatinhos/" target="_blank">
-                <img src="{{ url_for('static', filename='icons/clients/tallowmere-2.webp') }}" class="mx-auto mt-3 rounded-3" alt="" width="170" height="170">
-            </a>
-            <div class="card-body">
-                <h5 class="card-title">Tallowmere 2</h5>
-                <p class="card-text"><cite class="fst-italic">"Awesome, thanks very much again as always! Appreciate your work."</cite></p>
+        <div class="card testimonial">
+            <div class="card-hall-body">
+                <a href="https://store.steampowered.com/app/655740/Tallowmere_2_A_Maldio_dos_Gatinhos/" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/clients/tallowmere-2.webp') }}" alt="" width="170" height="170">
+                </a>
+                <h5 class="card-hall-title">Tallowmere 2</h5>
+                <cite class="fst-italic card-text">"Awesome, thanks very much again as always! Appreciate your work."</cite>
             </div>
         </div>
-        <div class="card col-sm me-2 mt-2" style="width: 15rem;">
-            <a href="https://play.google.com/store/apps/details?id=com.VenomizedArt.Mindcell" target="_blank">
-                <img src="{{ url_for('static', filename='icons/clients/mindcell.webp') }}" class="mx-auto mt-3 rounded-3" alt="" width="170" height="170">
-            </a>
-            <div class="card-body">
-                <h5 class="card-title">Mindcell</h5>
-                <p class="card-text"><cite class="fst-italic">"Thank you, Ewerton! It's really nice to work with you!"</cite></p>
+        <div class="card testimonial">
+            <div class="card-hall-body">
+                <a href="https://play.google.com/store/apps/details?id=com.VenomizedArt.Mindcell" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/clients/mindcell.webp') }}" alt="" width="170" height="170">
+                </a>
+                <h5 class="card-hall-title">Mindcell</h5>
+                <cite class="fst-italic card-text">"Thank you, Ewerton! It's really nice to work with you!"</cite>
             </div>
         </div>
-        <div class="card col-sm me-2 mt-2" style="width: 15rem;">
-            <a href="https://play.google.com/store/apps/details?id=com.panicensuessoftware.tailendcharlie" target="_blank">
-                <img src="{{ url_for('static', filename='icons/clients/tail-gun-charlie.webp') }}" class="mx-auto mt-3 rounded-3" alt="" width="170" height="170">
-            </a>
-            <div class="card-body">
-                <h5 class="card-title">Tail Gun Charlie</h5>
-                <p class="card-text"><cite class="fst-italic">"Thanks for the quick work!"</cite></p>
+        <div class="card testimonial">
+            <div class="card-hall-body">
+                <a href="https://play.google.com/store/apps/details?id=com.panicensuessoftware.tailendcharlie" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/clients/tail-gun-charlie.webp') }}" alt="" width="170" height="170">
+                </a>
+                <h5 class="card-hall-title">Tail Gun Charlie</h5>
+                <cite class="fst-italic card-text">"Thanks for the quick work!"</cite>
             </div>
         </div>
-        <div class="card col-sm me-2 mt-2" style="width: 15rem;">
-            <a href="https://play.google.com/store/apps/details?id=com.cloudcade.shopheroesLegends" target="_blank">
-                <img src="{{ url_for('static', filename='icons/clients/shop-heroes-legends.webp') }}" class="mx-auto mt-3 rounded-3" alt="" width="170" height="170">
-            </a>
-            <div class="card-body">
-                <h5 class="card-title">Shop Heroes</h5>
-                <p class="card-text"><cite class="fst-italic">In progress</cite></p>
+        <div class="card testimonial">
+            <div class="card-hall-body">
+                <a href="https://play.google.com/store/apps/details?id=com.guycorp.rpg.games.idle.merge.games" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/clients/mergy.webp') }}" alt="" width="170" height="170">
+                </a>
+                <h5 class="card-hall-title">Mergy</h5>
+                <cite class="fst-italic card-text">"Hello Ewerton, that was fast! It's perfect, thanks!"</cite>
+            </div>
+        </div>
+        <div class="card testimonial">
+            <div class="card-hall-body">
+                <a href="https://play.google.com/store/apps/details?id=com.filavision.brt" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/clients/pokerbank.webp') }}" alt="" width="170" height="170">
+                </a>
+                <h5 class="card-hall-title">Poker Tracker</h5>
+                <cite class="fst-italic card-text">Hey Ewerton! Looks amazing, thank you very much!</cite>
+            </div>
+        </div>
+        <div class="card testimonial">
+            <div class="card-hall-body">
+                <a href="https://play.google.com/store/apps/details?id=com.filavision.sa" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/clients/spotadvisor.webp') }}" alt="" width="170" height="170">
+                </a>
+                <h5 class="card-hall-title">Spotadvisor</h5>
+                <cite class="fst-italic card-text">Wow, you are really fast, thank you!</cite>
+            </div>
+        </div>
+        <div class="card testimonial">
+            <div class="card-hall-body">
+                <a href="https://play.google.com/store/apps/details?id=com.cloudcade.shopheroesLegends" target="_blank">
+                    <img src="{{ url_for('static', filename='icons/clients/shop-heroes-legends.webp') }}" alt="" width="170" height="170">
+                </a>
+                <h5 class="card-hall-title">Shop Heroes</h5>
+                <cite class="fst-italic card-text">In progress...</cite>
             </div>
         </div>
     </div>

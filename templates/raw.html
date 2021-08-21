@@ -1,27 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
-<main role="main" class="container">
+<div class="container">
     {% if success %}
-    <div class="alert alert-success" role="alert">
-        Os emails foram salvos com sucesso!
-    </div>
+    <div class="alert alert-success" role="alert">Os emails foram salvos com sucesso!</div>
     {% endif %}
 
     {% for field in form.errors %}
     {% for error in form.errors[field] %}
-    <div class="alert alert-danger" role="alert">
-        {{ field.upper() }}: {{ error }}
-    </div>
+    <div class="alert alert-danger" role="alert">{{ field.upper() }}: {{ error }}</div>
     {% endfor %}
     {% endfor %}
 
-    <!-- Title -->
     <h1>Emails</h1>
     <div class="line-h1"></div>
 
-    <div>
-        <p>Use esse espaço para enviar novos emails ao banco de dados.<br />Você pode colocar um de cada vez, ou vários ao mesmo tempo.<br />Pode saltar linha, separar por vírgula ou o que preferir.</p>
-    </div>
+    <p>Use esse espaço para enviar novos emails ao banco de dados.<br />Você pode colocar um de cada vez, ou vários ao mesmo tempo.<br />Pode saltar linha, separar por vírgula ou o que preferir.</p>
 
     <form method="POST" action="{{ url_for('raw') }}">
         {{ form.csrf_token }}
@@ -33,5 +26,5 @@
 
         <button type="submit" value="submit" class="btn btn-primary btn-lg d-grid mx-auto half-button col-4">Enviar</button>
     </form>
-</main>
+</div>
 {% endblock content %}

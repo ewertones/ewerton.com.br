@@ -36,7 +36,7 @@ h5 {
 footer {
     text-align: center;
     color: darkgray;
-    margin-top: 20px;
+    margin-top: 40px;
     z-index: -999;
     width: 100%;
 }
@@ -50,17 +50,11 @@ p {
     line-height: 31px;
 }
 
-/* SCROLLBAR */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #2cabe0;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #ffffff;
+figure {
+    border: 1px solid #f5f5f5;
+    padding: 5px;
+    display: inline;
+    float: right;
 }
 
 /* CLASSES */
@@ -71,25 +65,8 @@ p {
 
 .status-btn {
     margin-left: 5px;
-}
-
-.card-translation {
-    border: 3px solid #AACCB1;
-}
-
-.card-dataEngineer {
-    border: 3px solid #68B3AF;
-}
-
-.card-body {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.card-title {
-    margin-bottom: 15px;
-    font-size: 24px;
-    font-weight: 700;
+    width: 250px;
+    height: 65px;
 }
 
 .vagaFechada {
@@ -107,32 +84,6 @@ p {
 .bg-gray {
     background-color: #F8F8F8;
     z-index: -1;
-}
-
-.img-brasil::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    border: solid 6px #2cabe0;
-    position: absolute;
-    top: -30px;
-    right: -30px;
-    text-align: right;
-}
-
-.home-block {
-    margin-top: 100px;
-}
-
-.big-blue-number {
-    font-size: 64px;
-    font-weight: 900;
-    color: #2cabe0;
-}
-
-.numbers-container {
-    margin-top: 120px;
-    margin-bottom: 100px;
 }
 
 .nav-item {
@@ -159,19 +110,107 @@ p {
     font-style: italic;
 }
 
-.card {
-    margin-top: 20px;
-}
-
-.job-number {
-    color: #c7c7c7;
-}
-
 .half-button {
     max-width: 50%;
 }
 
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+}
+
+.testimonial {
+    margin: 0.5rem;
+}
+
+.big-blue-number {
+    font-size: 64px;
+    font-weight: 900;
+    color: #2cabe0;
+}
+
+.onetwo-block {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    grid-row-gap: 100px;
+}
+
+.card {
+    border: 3px solid;
+    border-color: #c7c7c7;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 25px;
+}
+
+.card-hall-title {
+
+}
+
+.card-hall-body {
+
+}
+
+.card-title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+.card-body {
+    display: grid;
+    grid-template-columns: 10% 85%;
+    gap: 5%;
+}
+
+.job-header{
+    display: grid;
+    grid-template-columns: 80% 15%;
+    gap: 5%;
+}
+
+.card-translation {
+    border-color: #AACCB1;
+}
+
+.card-dataEngineer {
+    border-color: #68B3AF;
+}
+
+.job-number {
+    color: #c7c7c7;
+    text-align: right;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.job-button{
+    margin-top: 25px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
 /* IDs */
+.img-brasil {
+    margin: 0 auto;
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.img-brasil::before {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100%;
+    height: 100%;
+    border: solid 6px #2cabe0;
+    content: '';
+    overflow: hidden;
+}
+
 #translationButton {
     background-color: #AACCB1;
     border-color: #AACCB1;
@@ -182,9 +221,69 @@ p {
     border-color: #68B3AF;
 }
 
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2cabe0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+}
+
 /* RESPONSIVE */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1500px) {
+    .testimonials {
+        grid-template-columns: repeat(3, 33%);
+    }
+}
+
+@media screen and (max-width: 992px) {
     #logo {
+        display: none;
+    }
+
+    .testimonials {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    figcaption {
+        display: none;
+    }
+
+    .onetwo-block {
+        grid-template-columns: 100%;
+    }
+
+    .card-body, .job-header {
+        grid-template-columns: 100%;
+    }
+
+    .job-number {
+        display: none;
+    }
+
+    .card-title {
+        text-align: center;
+    }
+
+    #my-photo {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .testimonials {
+        grid-template-columns: 100%;
+    }
+
+    .img-brasil {
         display: none;
     }
 }
