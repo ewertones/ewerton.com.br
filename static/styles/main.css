@@ -1,0 +1,190 @@
+/* MAIN TAGS */
+body {
+    font: 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+main {
+    max-width: 1000px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    color: #444;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: 800;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #2cabe0;
+    font-weight: 700;
+    font-size: 48px;
+}
+
+h4 {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+h5 {
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    color: darkgray;
+    margin-top: 20px;
+    z-index: -999;
+    width: 100%;
+}
+
+nav {
+    background-color: #2cabe0;
+}
+
+p {
+    font-size: 20px;
+    line-height: 31px;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2cabe0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+}
+
+/* CLASSES */
+.btn-primary {
+    background-color: #2cabe0;
+    border-color: #2cabe0;
+}
+
+.status-btn {
+    margin-left: 5px;
+}
+
+.card-translation {
+    border: 3px solid #AACCB1;
+}
+
+.card-dataEngineer {
+    border: 3px solid #68B3AF;
+}
+
+.card-body {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.vagaFechada {
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+}
+
+.alert {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.bg-gray {
+    background-color: #F8F8F8;
+    z-index: -1;
+}
+
+.img-brasil::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border: solid 6px #2cabe0;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    text-align: right;
+}
+
+.home-block {
+    margin-top: 100px;
+}
+
+.big-blue-number {
+    font-size: 64px;
+    font-weight: 900;
+    color: #2cabe0;
+}
+
+.numbers-container {
+    margin-top: 120px;
+    margin-bottom: 100px;
+}
+
+.nav-item {
+    color: #ffffff !important;
+    font-weight: 500;
+    margin-left: 50px;
+}
+
+.navbar-toggler {
+    width: 100%;
+}
+
+.line-h1 {
+    width: 40%;
+    display: block;
+    height: 4px;
+    margin: 0 auto 40px auto;
+    background-image: radial-gradient(circle, rgba(65,108,177,1) 0%, rgba(252,209,17,1) 35%, rgba(19,87,40,1) 100%);
+}
+
+.caption {
+    text-align: center;
+    color: darkgray;
+    font-style: italic;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.job-number {
+    color: #c7c7c7;
+}
+
+.half-button {
+    max-width: 50%;
+}
+
+/* IDs */
+#translationButton {
+    background-color: #AACCB1;
+    border-color: #AACCB1;
+}
+
+#dataEngineeringButton {
+    background-color: #68B3AF;
+    border-color: #68B3AF;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 800px) {
+    #logo {
+        display: none;
+    }
+}

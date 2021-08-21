@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    {% if success %}
+    <div class="alert alert-success" role="alert">Your message has been sent successfully!</div>
+    {% endif %}
+
+    {% for field in form.errors %}
+    {% for error in form.errors[field] %}
+    <div class="alert alert-danger" role="alert">{{ field.upper() }}: {{ error }}</div>
+    {% endfor %}
+    {% endfor %}
+
+    <h1>Contact</h1>
+    <div class="line-h1"></div>
+
+    <p>If you want to send me a message, you can use this form. I will probably read it in under 24 hours.</p>
+
+    <form method="POST" action="{{ url_for('contact') }}" role="form" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+
+        {{ form.name.label }}
+        {{ form.name(class = "form-control mb-3") }}
+
+        {{ form.email.label }}
+        {{ form.email(class = "form-control mb-3") }}
+
+        {{ form.message.label }}
+        {{ form.message(rows=5, class="form-control mb-3") }}
+
+        {{ form.upload(class="form-control mb-3") }}
+
+        {{ form.recaptcha(class = 'mb-3') }}
+
+        <button type="submit" value="submit" class="btn btn-primary btn-lg d-grid mx-auto half-button col-4">Send</button>
+    </form>
+</div>
+{% endblock content %}

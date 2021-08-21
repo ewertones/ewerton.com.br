@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="alert alert-info" role="alert">
+        <img src="{{ url_for('static', filename='/icons/usa.svg') }}" width="25" height="25"> Hello, this page is purposely written in Portuguese! Sorry for the incovenience.
+    </div>
+
+    <h1>Vagas</h1>
+    <div class="line-h1"></div>
+
+    <div>
+        <p>
+            Estou precisando de ajuda com umas tarefas.<br />
+            Se tiver interesse, não deixe de se candidatar.
+        </p>
+    </div>
+
+    <div id="vagas-block">
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-success status-btn" id="abertaButton" type="button" data-bs-target=".vagaAberta" data-parent="#vagas-block">
+                ABERTAS
+            </button>
+            <button class="btn btn-secondary status-btn" id="fechadaButton" type="button" data-bs-target=".vagaFechada" data-parent="#vagas-block">
+                ENCERRADAS
+            </button>
+        </div>
+        <div class="vagas vagaAberta">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row d-flex flex-wrap align-items-center">
+                        <div class="col-md-1">
+                            <img src="{{ url_for('static', filename='/icons/talk.svg') }}" width="64" height="64">
+                        </div>
+                        <div class="col-md-11">
+                            <h4 class="card-title d-flex justify-content-between">
+                                <span>Tradutor Inglês/Português</span>
+                                <div class="job-number">#03</div>
+                            </h4>
+                            <p class="card-text">
+                                Se você é bom no inglês, sabe interpretar texto e escrever bem, o trabalho basicamente é esse. Tenho quantidades grandes de texto que precisam ser traduzidas de forma que o sentido se mantenha e a qualidade seja impecável. Você será treinado em uma ferramenta especializada, mas caso queira trabalhar usando Excel ou similar, fica por sua conta.
+                            </p>
+                            <a target="_blank" href="mailto:ewerton@ewerton.com.br?subject=Tradutor%20Ingl%C3%AAs%2FPortugu%C3%AAs&body=Opa%2C%20e%20a%C3%AD%2C%20Ewerton!%0D%0A%0D%0AVi%20aquela%20vaga%20de%20Tradutor%20Ingl%C3%AAs%2FPortugu%C3%AAs%20no%20site%20e%20tenho%20interesse.%0D%0A%0D%0ADeixei%20anexo%20o%20meu%20curr%C3%ADculo.%0D%0A%0D%0AAtt%2C" class="btn btn-primary">Tenho interesse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row d-flex flex-wrap align-items-center">
+                        <div class="col-md-1">
+                            <img src="{{ url_for('static', filename='/icons/python.svg') }}" width="64" height="64">
+                        </div>
+                        <div class="col-md-11">
+                            <h4 class="card-title d-flex justify-content-between">
+                                <span>Desenvolvedor Python Jr.</span>
+                                <div class="job-number">#04</div>
+                            </h4>
+                            <p class="card-text">
+                                Se quer melhorar suas habilidades com programação e já entende um pouco de como extrair informações com Python através da leitura de arquivos e de scraping na web, pode ser uma ótima oportunidade para você. Seu papel será tentar otimizar tarefas para o crescimento da empresa, além de construir dashboards com dados do banco.
+                            </p>
+                            <a target="_blank" href="mailto:ewerton@ewerton.com.br?subject=Desenvolvedor%20Python%20Jr.&body=Opa%2C%20e%20a%C3%AD%2C%20Ewerton!%0D%0A%0D%0AVi%20aquela%20vaga%20de%20Desenvolvedor%20Python%20Jr.%20no%20site%20e%20tenho%20interesse.%0D%0A%0D%0ADeixei%20anexo%20o%20meu%20curr%C3%ADculo.%0D%0A%0D%0AAtt%2C" class="btn btn-primary">Tenho interesse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="vagas vagaFechada collapse">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row d-flex flex-wrap align-items-center">
+                        <div class="col-md-1">
+                            <img src="{{ url_for('static', filename='/icons/mail.svg') }}" width="64" height="64">
+                        </div>
+                        <div class="col-md-11">
+                            <h4 class="card-title d-flex justify-content-between">
+                                <span>Assistente de Marketing</span>
+                                <div class="job-number">#01</div>
+                            </h4>
+                            <p class="card-text">
+                                Se você tem interesse em me ajudar a captar novos clientes, procurando e encontrando formas de contatá-los sem que fiquem irritados, essa é a vaga perfeita para você.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row d-flex flex-wrap align-items-center">
+                        <div class="col-md-1">
+                            <img src="{{ url_for('static', filename='/icons/talk.svg') }}" width="64" height="64">
+                        </div>
+                        <div class="col-md-11">
+                            <h4 class="card-title d-flex justify-content-between">
+                                <span>Tradutor Inglês/Português</span>
+                                <div class="job-number">#02</div>
+                            </h4>
+                            <p class="card-text">
+                                Se você é bom no inglês, sabe interpretar texto e escrever bem, o trabalho basicamente é esse. Tenho quantidades grandes de texto que precisam ser traduzidas de forma que o sentido se mantenha e a qualidade seja impecável. Você será treinado em uma ferramenta especializada, mas caso queira trabalhar usando Excel ou similar, fica por sua conta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row d-flex flex-wrap align-items-center">
+                        <div class="col-md-1">
+                            <img src="{{ url_for('static', filename='/icons/html.svg') }}" width="64" height="64">
+                        </div>
+                        <div class="col-md-11">
+                            <h4 class="card-title d-flex justify-content-between">
+                                <span>Desenvolvedor Front-end Jr.</span>
+                                <div class="job-number">#05</div>
+                            </h4>
+                            <p class="card-text">
+                                Este site foi construído com o básico de HTML/CSS/Javascript e o framework feito em Flask. Estou meio sem tempo para ir melhorando os arquivos, então caso queira ficar por conta disso, gostaria muito de conversar com você.
+                            </p>
+                            <!--<a target="_blank" href="mailto:ewerton@ewerton.com.br?subject=Desenvolvedor%20Front-end%20Jr.&body=Opa%2C%20e%20a%C3%AD%2C%20Ewerton!%0D%0A%0D%0AVi%20aquela%20vaga%20de%20Desenvolvedor%20Front-end%20Jr.%20no%20site%20e%20tenho%20interesse.%0D%0A%0D%0ADeixei%20anexo%20o%20meu%20curr%C3%ADculo.%0D%0A%0D%0AAtt%2C" class="btn btn-primary">Tenho interesse</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#vagas-block').on('click', 'button', function () {
+                    var target = $(this).data('bsTarget');
+                    var notTarget = target === '.vagaAberta' ? '.vagaFechada' : '.vagaAberta';
+                    if ($(target).is(":hidden")) {
+                        $(target).show();
+                        $(notTarget).hide();
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>
+{% endblock content %}
