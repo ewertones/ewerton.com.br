@@ -9,16 +9,15 @@ from flask_wtf import FlaskForm, RecaptchaField
 from flask import Flask, render_template, send_from_directory, request
 from wtforms import StringField, TextAreaField, MultipleFileField, validators
 from wtforms.fields.html5 import EmailField
-from decouple import config
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = config('FLASK_SECRET_KEY')
+app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY')
 app.config['RECAPTCHA_USE_SSL'] = False
-app.config['RECAPTCHA_PUBLIC_KEY'] = config('RECAPTCHA_PUBLIC_KEY')
-app.config['RECAPTCHA_PRIVATE_KEY'] = config('RECAPTCHA_PRIVATE_KEY')
-MAILJET_KEY = config('MAILJET_KEY')
-MAILJET_SECRET = config('MAILJET_SECRET')
+app.config['RECAPTCHA_PUBLIC_KEY'] = os.getenv('RECAPTCHA_PUBLIC_KEY')
+app.config['RECAPTCHA_PRIVATE_KEY'] = os.getenv('RECAPTCHA_PRIVATE_KEY')
+MAILJET_KEY = os.getenv('MAILJET_KEY')
+MAILJET_SECRET = os.getenv('MAILJET_SECRET')
 logging.basicConfig(level=logging.DEBUG)
 
 
