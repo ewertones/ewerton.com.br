@@ -16,7 +16,6 @@ python main.py
 ## Arquivos
 ```bash
 |   .dockerignore # Arquivos que não serão colocados na imagem
-|   .env # Define se o webserver vai rodar como dev ou prod
 |   .gitignore # Arquivos que não serão upados pro GitHub
 |   Dockerfile # Instruções para a criação da imagem
 |   main.py # Arquivo principal, usado para iniciar o servidor
