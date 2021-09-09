@@ -9,6 +9,17 @@ from flask_wtf import FlaskForm, RecaptchaField
 from flask import Flask, render_template, send_from_directory, request
 from wtforms import StringField, TextAreaField, MultipleFileField, validators
 from wtforms.fields.html5 import EmailField
+from decouple import config
+
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = config('FLASK_SECRET_KEY')
+app.config['RECAPTCHA_USE_SSL'] = False
+app.config['RECAPTCHA_PUBLIC_KEY'] = config('RECAPTCHA_PUBLIC_KEY')
+app.config['RECAPTCHA_PRIVATE_KEY'] = config('RECAPTCHA_PRIVATE_KEY')
+MAILJET_KEY = config('MAILJET_KEY')
+MAILJET_SECRET = config('MAILJET_SECRET')
+logging.basicConfig(level=logging.DEBUG)
 
 
 class ContactForm(FlaskForm):
@@ -39,8 +50,6 @@ def send_to_db(params):
 
 def send_email(params, attachments):
     """ Use Mailjet API to send email """
-    MAILJET_KEY = '87d785b193f39adcf6aa35e8fad9af27'
-    MAILJET_SECRET = 'a14f61549fa49e97a4a774cf0b00fa95'
     mailjet = Client(auth=(MAILJET_KEY, MAILJET_SECRET), version='v3.1')
 
     email = {
@@ -68,13 +77,6 @@ def send_email(params, attachments):
     except Exception as exception:
         app.logger.error(exception)
 
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '22bfddd8e6ca2a4739723034f02ced9c3014a8892d9bace1'
-app.config['RECAPTCHA_USE_SSL'] = False
-app.config['RECAPTCHA_PUBLIC_KEY'] = '6LdQn1obAAAAAE1lwWFuBqFbbo7CbxX6K-jDp_Kg'
-app.config['RECAPTCHA_PRIVATE_KEY'] ='6LdQn1obAAAAAJHisBMReP5ihnXguwWYAyaQg3dx'
-logging.basicConfig(level=logging.DEBUG)
 
 @app.route('/favicon.ico')
 def favicon():
